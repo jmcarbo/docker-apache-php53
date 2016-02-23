@@ -12,12 +12,18 @@ RUN apt-get update && \
       php5-gd \
       php5-ldap \
       php5-mysql \
-      php5-pgsql
+      php5-pgsql \
+      php-gettext \ 
+      php5-mcrypt
+
+#RUN apt-get install -y php-lconv
 
 COPY apache_default /etc/apache2/sites-available/default
 COPY run /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
 RUN a2enmod rewrite
+RUN a2enmod expires
+RUN a2enmod deflate
 
 EXPOSE 80
 CMD ["/usr/local/bin/run"]
