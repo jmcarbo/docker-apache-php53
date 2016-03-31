@@ -14,6 +14,7 @@ RUN apt-get update && \
       php5-mysql \
       php5-pgsql \
       php-gettext \ 
+      php-curl \ 
       php5-mcrypt
 
 #RUN apt-get install -y php-lconv
